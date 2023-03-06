@@ -24,7 +24,7 @@ public class LibraryEventsController {
     @PostMapping("/v1/libraryevent")
     public ResponseEntity<LibraryEvent> postLibraryEvent(@RequestBody LibraryEvent libraryEvent) throws JsonProcessingException, ExecutionException, InterruptedException {
 
-        libraryEvent.setLibraryEventId(1 + (int)(Math.random() * ((10000 - 1) + 1)));
+        //libraryEvent.setLibraryEventId(1 + (int)(Math.random() * ((10000 - 1) + 1)));
 
         //invoke the kafka producer asynchronously
        // libraryEventProducer.sendLibraryEvent(libraryEvent);
