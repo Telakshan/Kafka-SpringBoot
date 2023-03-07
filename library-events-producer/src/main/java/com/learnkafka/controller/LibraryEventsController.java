@@ -32,13 +32,23 @@ public class LibraryEventsController {
 
         //invoke the kafka producer synchronously
         libraryEvent.setLibraryEventType(LibraryEventType.NEW);
+
         libraryEventProducer.sendLibraryEvent_Approach2(libraryEvent);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(libraryEvent);
     }
 
-//    @PutMapping
-//    public ResponseEntity<LibraryEvent> updateLibraryEvent(){
-//
-//    }
+    @PutMapping("/v1/libraryevent")
+    public ResponseEntity<LibraryEvent> putLibraryEvent(@RequestBody @Valid LibraryEvent libraryEvent) throws JsonProcessingException, ExecutionException, InterruptedException {
+
+        if(libraryEvent.getLibraryEventId() == null){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(libraryEvent);
+        }
+
+        libraryEvent.setLibraryEventType(LibraryEventType.UPDATE);
+        libraryEventProducer.sendLibraryEvent_Approach2(libraryEvent);
+
+        return ResponseEntity.status(HttpStatus.OK).body(libraryEvent);
+    }
+
 }
