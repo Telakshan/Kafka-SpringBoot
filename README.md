@@ -7,6 +7,11 @@ After starting the spring boot producer
 ### Run this command to see the topics created.
 
  - docker exec zookeeper kafka-topics --bootstrap-server kafka2:9092 --list
+
+### To check out Partition count, replication factor atc, run this command: 
+
+   (This example is for kafka3 container)
+-  docker exec kafka3 kafka-topics --describe --bootstrap-server kafka3:9092 --topic library-events
  
  ## Step 2:
  
