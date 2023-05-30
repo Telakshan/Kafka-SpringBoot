@@ -19,4 +19,4 @@ spring:
        # retry.backoff.ms: 1000
     admin:
       properties:
-        bootstrap.servers: localhost:8097,localhost:8098,localhost:8099
+         bootstrap.servers: localhost:8097,localhost:8098,localhost:8099
